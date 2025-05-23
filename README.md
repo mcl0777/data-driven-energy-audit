@@ -1,6 +1,6 @@
 # Data-Driven Energy Audit
 
-This project is a prototype developed as part of a master's project to technically enhance the Data Energy Audit process. The application analyzes energy consumption data from e.g. CNC machines during different operational phases to better estimate the energy consumption of the machine and its components. The focus is solely on electrical energy consumption.
+This project is a prototype developed as part of a master's project to technically enhance the Data Energy Audit process. It aims to improve energy transparency in e.g. CNC machining by analyzing electrical consumption across distinct machine states – Standby, Ready, and Process and across the different components of the machinery. This project provides a reproducible toolchain for visualizing, analyzing, and reporting machine-level energy data. The focus is solely on electrical energy consumption.
 
 ## Features
 
