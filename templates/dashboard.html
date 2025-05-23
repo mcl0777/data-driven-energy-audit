@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenbasiertes Energieeinsparungsaudit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <h1>Datenbasiertes Energieeinsparungsaudit</h1>
+</header>
+<div id="main-content">
+    <div id="data-display">
+        <div id="info-box">
+            <h3>Strukturbaum:</h3>
+            <ul id="component-list"></ul>
+            <h3>Maschineninformationen:</h3>
+            <form id="machine-info-form">
+                <div class="form-group">
+                    <label for="company">Unternehmen:</label>
+                    <input type="text" id="company" name="company" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="model">Modell:</label>
+                    <input type="text" id="model" name="model" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="location">Standort:</label>
+                    <input type="text" id="location" name="location" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="date">Datum:</label>
+                    <input type="text" id="date" name="date" value="{{ current_date }}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="time">Uhrzeit:</label>
+                    <input type="text" id="time" name="time" value="{{ current_time }}" class="form-control">
+                </div>
+                <div class="button-group">
+                    <button type="button" id="generate-pdf" class="btn btn-primary">PDF exportieren</button>
+                </div>
+            </form>
+            <h3>Dateien hochladen:</h3>
+            <form id="upload-form" enctype="multipart/form-data" class="upload-form">
+                <div class="form-group">
+                    <label for="file-upload-standby">Stand-By</label>
+                    <input id="file-upload-standby" name="file-standby" type="file" accept=".csv, .xls, .xlsx">
+                </div>
+                <div class="form-group">
+                    <label for="file-upload-ready">Ready</label>
+                    <input id="file-upload-ready" name="file-ready" type="file" accept=".csv, .xls, .xlsx">
+                </div>
+                <div class="form-group">
+                    <label for="file-upload-process">Prozess</label>
+                    <input id="file-upload-process" name="file-process" type="file" accept=".csv, .xls, .xlsx">
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+        <div id="charts" class="chart-container">
+            <div id="tabs" style="display: none;">
+                <button class="tab-button" data-state="standby">Stand-By</button>
+                <button class="tab-button" data-state="ready">Ready</button>
+                <button class="tab-button" data-state="process">Prozess</button>
+            </div>
+            <hr class="divider">
+            <div id="chart-content">
+                <div>
+                    <h2 id="energy-chart-title" style="display: none;">Energieverlauf:</h2>
+                    <canvas id="energyChart"></canvas>
+                </div>
+                <div>
+                    <h2 id="pie-chart-title" style="display: none;">Durchschnittlicher Komponentenanteil an der Gesamtenergie:</h2>
+                    <canvas id="energyPieChart" style="display: none;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p></p>
+</footer>
+
+<!-- Modal for PDF filename input -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>PDF-Dateiname und Prozentanteile eingeben</h2>
+        <form id="pdf-form">
+            <table>
+                <tr>
+                    <td><label for="pdf-filename-input">Dateiname:</label></td>
+                    <td><input type="text" id="pdf-filename-input" class="form-control" placeholder="energieeinsparungsaudit.pdf"></td>
+                </tr>
+                <tr>
+                    <td><label for="standby-percentage">Stand-By (%):</label></td>
+                    <td><input type="number" id="standby-percentage" class="form-control" min="0" max="100" step="1"></td>
+                </tr>
+                <tr>
+                    <td><label for="ready-percentage">Ready (%):</label></td>
+                    <td><input type="number" id="ready-percentage" class="form-control" min="0" max="100" step="1"></td>
+                </tr>
+                <tr>
+                    <td><label for="process-percentage">Prozess (%):</label></td>
+                    <td><input type="number" id="process-percentage" class="form-control" min="0" max="100" step="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="button" id="confirm-pdf-filename" class="btn btn-primary">Bestätigen</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

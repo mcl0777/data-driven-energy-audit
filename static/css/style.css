@@ -1,0 +1,267 @@
+/* Allgemeine Stile für den Body und die HTML-Seite */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #C1D100; /* Neue Hintergrundfarbe */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Stile für Header und Footer */
+header {
+  background-color: #1D71B8;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+footer {
+  background-color: #1D71B8;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: fixed; /* Fixiert den Footer am unteren Rand */
+  bottom: 0;
+}
+
+/* Stile für den Hauptinhalt */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1;
+  margin-bottom: 60px; /* Platz für den Footer einräumen */
+}
+
+/* Stile für die Anzeige von Daten */
+#data-display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Gleiche Höhe für beide Boxen */
+  margin-bottom: 20px; /* Einheitlicher Abstand */
+}
+
+/* Stile für die Informationsbox und Diagrammcontainer */
+#info-box, .chart-container {
+  flex: 1;
+  padding: 20px;
+  background-color: #36A9E1; /* Neue Hintergrundfarbe */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto; /* Automatische Höhe */
+  min-height: 500px; /* Mindesthöhe der Kästen */
+}
+
+/* Anpassung der Breite des linken blauen Kastens */
+#info-box {
+  max-width: 300px; /* Verkleinerte Breite des linken blauen Kastens */
+}
+
+/* Dynamische Breiten für die Diagrammcontainer */
+.chart-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #36A9E1; /* Gleiche Farbe wie InfoBox */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+}
+
+/* Container für die beiden Diagramme */
+#charts {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Übereinander anordnen */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.chart {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 20px 0; /* Abstand zum oberen und unteren Rand */
+}
+
+/* Stile für die Formularfelder und Labels */
+form {
+  width: 100%;
+  display: table;
+  margin-top: 10px; /* Abstand zwischen den Formularen */
+}
+
+.form-group {
+  display: table-row;
+}
+
+form label {
+  display: table-cell;
+  text-align: left; /* Text im Label linksbündig */
+  padding-right: 10px;
+}
+
+form input[type="text"], form input[type="file"] {
+  display: table-cell;
+  text-align: right; /* Text im Eingabefeld rechtsbündig */
+  width: 100%; /* Volle Breite innerhalb der Rasterzelle */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Stile für die Button-Gruppe */
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Buttons gleichmäßig verteilen */
+  width: 100%;
+  margin-top: 15px;
+}
+
+.button-group .btn-primary, .btn {
+  flex: 1;
+  padding: 5px 10px; /* Höhe und Breite der Buttons anpassen */
+  background-color: #1D71B8; /* Neue Buttonfarbe */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 12px; /* Kleinere Schriftgröße */
+  margin: 5px;
+}
+
+.button-group .btn-primary:hover, .btn:hover {
+  background-color: #1D71B8; /* Gleicher Hover-Effekt */
+}
+
+/* Weitere Stile für Buttons */
+.btn-primary, .btn {
+  padding: 5px 10px; /* Kleinere Polsterung */
+  min-width: 80px; /* Kleinere Mindestbreite */
+  height: 30px; /* Kleinere Höhe */
+  line-height: 1.2; /* Zeilenhöhe für Textzentrierung */
+  margin: 5px; /* Abstand zwischen den Buttons */
+}
+
+/* Abstand für die Löschen-Buttons */
+ul#component-list li {
+  margin-bottom: 10px;
+}
+
+/* Stile für Canvas-Elemente */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 600px;
+  max-height: 400px;
+}
+
+/* Stile für Absätze im Footer */
+footer p {
+  margin: 5px 0;
+}
+
+/* Stile für zusätzliche Steuerelemente */
+.controls {
+  margin-top: 20px;
+}
+
+/* Stile für Labels und Select-Elemente */
+label, select {
+  margin-right: 20px;
+}
+
+/* Stile für die Tabs */
+#tabs {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 0; /* Entferne den unteren Rand */
+}
+
+.tab-button {
+  padding: 10px 20px;
+  background-color: #1D71B8;
+  color: white;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.tab-button.active {
+  background-color: #C1D100;
+  color: #1D71B8;
+}
+
+.tab-button:hover {
+  background-color: #1D71B8;
+  color: white;
+}
+
+/* Divider line under tabs */
+.divider {
+  width: 100%;
+  margin: 0; /* Entferne den oberen und unteren Rand */
+}
+
+/* Popup CSS */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #36A9E1;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Max width */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add shadows */
+}
+
+.modal-content table {
+    width: 100%;
+}
+
+.modal-content td {
+    padding: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
