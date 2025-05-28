@@ -72,7 +72,7 @@ The application will be available at `http://localhost:8080`
 
 ## Data Format
 
-The application expects CSV files with the following characteristics:
+The application expects CSV and Excel (.csv, .xls, .xlsx) files with the following characteristics:
 - Comma-separated values
 - Headers for each column
 - Numerical values for energy consumption
@@ -85,7 +85,6 @@ Example data files are provided in the `data/example_data` directory.
 ## Known Issues
 
 - **Component Name Editing**: Editing component names may cause issues in data processing
-- **File Upload Limitations**: Currently only CSV files are supported
 - **Required Column Structure**: Each uploaded file must have time values in the first column and a total energy column
 - **Automatic "Other" Energy Calculation**: Energy that cannot be attributed to individual components is automatically calculated as "Sonstige [W]" (engl.:"Others [W]")
 

@@ -7,6 +7,7 @@ import json
 from create_energy_audit_pdf import create_energy_audit_pdf
 import os
 import glob
+import openpyxl
 
 app = Flask(__name__)
 
@@ -47,11 +48,18 @@ def upload_file():
     for state, file in files.items():
         if file:
             try:
-                raw_data = file.read()
-                result = chardet.detect(raw_data)
-                encoding = result['encoding']
-                file.seek(0)  # Reset the file pointer to the beginning
-                df = pd.read_csv(io.StringIO(raw_data.decode(encoding)), delimiter=',', quotechar='"')
+                # Prüfe die Dateiendung
+                filename = file.filename.lower()
+                if filename.endswith(('.xls', '.xlsx')):
+                    # Excel-Datei verarbeiten
+                    df = pd.read_excel(file)
+                else:
+                    # CSV-Datei verarbeiten
+                    raw_data = file.read()
+                    result = chardet.detect(raw_data)
+                    encoding = result['encoding']
+                    file.seek(0)  # Reset the file pointer to the beginning
+                    df = pd.read_csv(io.StringIO(raw_data.decode(encoding)), delimiter=',', quotechar='"')
 
                 # Debugging: Überprüfen der eingelesenen Daten
                 print(f"Original DataFrame ({state}):")
