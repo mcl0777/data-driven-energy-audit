@@ -66,7 +66,7 @@ The application will be available at `http://localhost:8080`
 ## Usage
 
 1. Open your web browser and navigate to `http://localhost:8080`
-2. Upload your CSV files for each machine state (standby, ready, process)
+2. Upload your  or Excel files for each machine state (standby, ready, process); You do not need to upload all of them.
 3. The application will process the data and display the results
 4. Generate a PDF report with the analyzed data
 
