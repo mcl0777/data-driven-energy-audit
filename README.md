@@ -52,7 +52,7 @@ This project is a prototype developed as part of a master's project to technical
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/mcl0777/data-driven-energy-audit
 cd data-driven-energy-audit
 ```
 
